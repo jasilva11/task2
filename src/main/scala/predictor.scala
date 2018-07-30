@@ -10,13 +10,13 @@ class Predictor extends Actor {
 
   var cache:Map[String, Int] = Map()
 
-  def calculate(team):Int = {
+  def calculate(team:String):Int = {
     val bufferedSource = io.Source.fromFile("./files/players.csv")
     var teamSkill:Int = 0
     var numJugadores = 0
     for (line <- bufferedSource.getLines) {
       val cols = line.split(",").map(_.trim)
-      if(cols(2)=="Real Madrid CF")
+      if(cols(2)==team)
       {
         numJugadores += 1
         teamSkill += Integer.parseInt(cols(3))

@@ -1,7 +1,7 @@
 import akka.actor._
 
 object UpdateUser {
-  props(predictor: ActorRef): Props = Props(new UpdateUser(predictor))
+  def props(predictor: ActorRef): Props = Props(new UpdateUser(predictor))
   final case class Update(player: String)
 }
 

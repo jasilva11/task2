@@ -1,7 +1,8 @@
+import Predictor.Predict
 import akka.actor._
 
 object QueryUser {
-  props(predictor: ActorRef): Props = Props(new QueryUser(predictor))
+  def props(predictor: ActorRef): Props = Props(new QueryUser(predictor))
   final case class Query(team1: String, team2: String)
 }
 
